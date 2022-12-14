@@ -1,6 +1,6 @@
 import { IsDate, IsNumber } from 'class-validator';
 
-export class UpdateCartDto {
+export class CreateTicketDto {
   @IsNumber()
   readonly ticket_id;
 

@@ -1,0 +1,36 @@
+import { Table, Model, Column, DataType } from 'sequelize-typescript';
+
+@Table({ tableName: 'customer-cards' })
+export class CustomerCard extends Model {
+  @Column({
+    type: DataType.INTEGER,
+    unique: true,
+    autoIncrement: true,
+    primaryKey: true,
+  })
+  id: number;
+
+  @Column({ type: DataType.INTEGER })
+  customer_id: number;
+
+  @Column({ type: DataType.STRING })
+  name: string;
+
+  @Column({ type: DataType.STRING })
+  phone: string;
+
+  @Column({ type: DataType.STRING })
+  number: string;
+
+  @Column({ type: DataType.STRING })
+  year: string;
+
+  @Column({ type: DataType.STRING })
+  month: string;
+
+  @Column({ type: DataType.BOOLEAN })
+  is_active: string;
+
+  @Column({ type: DataType.BOOLEAN })
+  is_main: string;
+}

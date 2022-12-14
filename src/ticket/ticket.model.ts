@@ -1,7 +1,7 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-@Table({ tableName: 'bookings' })
-export class Booking extends Model {
+@Table({ tableName: 'tickets' })
+export class Ticket extends Model {
   @Column({
     type: DataType.INTEGER,
     unique: true,
@@ -11,23 +11,20 @@ export class Booking extends Model {
   id: number;
 
   @Column({ type: DataType.INTEGER })
-  cart_id: number;
-
-  @Column({ type: DataType.DATE })
-  createdAt: Date;
-
-  @Column({ type: DataType.DATE })
-  fineshed: Date;
-
-  @Column({ type: DataType.SMALLINT })
-  payment_method_id: number;
-
-  @Column({ type: DataType.SMALLINT })
-  delivery_method_id: number;
+  ticket_id: number;
 
   @Column({ type: DataType.INTEGER })
-  discount_coupon_id: number;
+  customer_id: number;
+
+  @Column({ type: DataType.DATE })
+  createdAt: number;
+
+  @Column({ type: DataType.DATE })
+  fineshedAt: number;
 
   @Column({ type: DataType.SMALLINT })
   status_id: number;
+
+  @Column({ type: DataType.SMALLINT })
+  ticket_type: number;
 }

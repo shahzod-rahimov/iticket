@@ -1,4 +1,5 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
+import { Booking } from 'src/booking/booking.model';
 
 @Table({ tableName: 'carts' })
 export class Cart extends Model {
@@ -24,4 +25,7 @@ export class Cart extends Model {
 
   @Column({ type: DataType.SMALLINT })
   status_id: number;
+
+  // @HasMany(() => Booking)
+  // booking: Booking;
 }

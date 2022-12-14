@@ -1,18 +1,27 @@
-import { IsDate, IsNumber } from 'class-validator';
+import { IsDate, IsDecimal, IsNumber, IsOptional } from 'class-validator';
 
 export class UpdateTicketDto {
+  @IsOptional()
   @IsNumber()
-  readonly ticket_id;
+  readonly event_id;
 
+  @IsOptional()
   @IsNumber()
-  readonly customer_id;
+  readonly seat_id;
 
-  @IsDate()
-  readonly createdAt;
+  @IsOptional()
+  @IsDecimal()
+  readonly price;
 
-  @IsDate()
-  readonly fineshedAt;
+  @IsOptional()
+  @IsDecimal()
+  readonly service_fee;
 
+  @IsOptional()
   @IsNumber()
   readonly status_id;
+
+  @IsOptional()
+  @IsNumber()
+  readonly ticket_type;
 }

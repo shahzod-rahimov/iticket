@@ -16,6 +16,39 @@ import { HumanCategoryModule } from './human_category/human_category.module';
 import { VenueModule } from './venue/venue.module';
 import { VenuePhotoModule } from './venue_photo/venue_photo.module';
 import { VenueTypeModule } from './venue_type/venue_type.module';
+import { Booking } from './booking/booking.model';
+import { Admin } from './admin/admin.model';
+import { Cart } from './cart/cart.model';
+import { Customer } from './customer/customer.model';
+import { CustomerAddress } from './customer_address/customer-address.model';
+import { CustomerCard } from './customer_card/customer_card.model';
+import { Event } from './event/event.model';
+import { EventType } from './event_type/event_type.model';
+import { HumanCategory } from './human_category/human_category.model';
+import { Seat } from './seat/seat.model';
+import { SeatType } from './seat_type/seat_type.model';
+import { Ticket } from './ticket/ticket.model';
+import { Venue } from './venue/venue.model';
+import { VenuePhotos } from './venue_photo/venue_photo.model';
+import { VenueType } from './venue_type/venue_type.model';
+import { PaymentMethodModule } from './payment_method/payment_method.module';
+import { DeliveryMethodModule } from './delivery_method/delivery_method.module';
+import { DiscountCouponModule } from './discount_coupon/discount_coupon.module';
+import { StatusModule } from './status/status.module';
+import { TicketTypeModule } from './ticket_type/ticket_type.module';
+import { LanguagesModule } from './languages/languages.module';
+import { PaymentMethod } from './payment_method/payment_method.model';
+import { DeliveryMethod } from './delivery_method/delivery_method.model';
+import { DiscountCoupon } from './discount_coupon/discount_coupon.model';
+import { Status } from './status/status.model';
+import { TicketType } from './ticket_type/ticket_type.model';
+import { Language } from './languages/languages.model';
+import { CountriesModule } from './countries/countries.module';
+import { RegionModule } from './region/region.module';
+import { RegionController } from './region/region.controller';
+import { RegionService } from './region/region.service';
+import { DistrictModule } from './district/district.module';
+import { GenderModule } from './gender/gender.module';
 
 @Module({
   imports: [
@@ -29,7 +62,29 @@ import { VenueTypeModule } from './venue_type/venue_type.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [],
+      models: [
+        Booking,
+        Admin,
+        Cart,
+        Customer,
+        CustomerAddress,
+        CustomerCard,
+        Event,
+        EventType,
+        HumanCategory,
+        Seat,
+        SeatType,
+        Ticket,
+        Venue,
+        VenuePhotos,
+        VenueType,
+        PaymentMethod,
+        DeliveryMethod,
+        DiscountCoupon,
+        Status,
+        TicketType,
+        Language,
+      ],
       autoLoadModels: true,
       logging: false,
     }),
@@ -48,6 +103,18 @@ import { VenueTypeModule } from './venue_type/venue_type.module';
     VenueModule,
     VenuePhotoModule,
     VenueTypeModule,
+    PaymentMethodModule,
+    DeliveryMethodModule,
+    DiscountCouponModule,
+    StatusModule,
+    TicketTypeModule,
+    LanguagesModule,
+    CountriesModule,
+    RegionModule,
+    DistrictModule,
+    GenderModule,
   ],
+  controllers: [RegionController],
+  providers: [RegionService],
 })
 export class AppModule {}

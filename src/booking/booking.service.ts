@@ -1,11 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { Booking } from './booking.model';
 import { CreateBookingDto } from './dto/create-booking.dto';
 import { UpdateBookingDto } from './dto/update-booking.dto';
 
 @Injectable()
 export class BookingService {
+  constructor(@InjectModel(Booking) private bookingModel: typeof Booking) {}
   create(createBookingDto: CreateBookingDto) {
-    return 'This action adds a new booking';
+    
   }
 
   findAll() {

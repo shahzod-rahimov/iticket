@@ -11,19 +11,19 @@ export class Ticket extends Model {
   id: number;
 
   @Column({ type: DataType.INTEGER })
-  ticket_id: number;
+  event_id: number;
 
   @Column({ type: DataType.INTEGER })
-  customer_id: number;
+  seat_id: number;
 
-  @Column({ type: DataType.DATE })
-  createdAt: number;
+  @Column({ type: DataType.DECIMAL })
+  price: number;
 
-  @Column({ type: DataType.DATE })
-  fineshedAt: number;
+  @Column({ type: DataType.DECIMAL })
+  service_fee: number;
 
   @Column({ type: DataType.SMALLINT })
-  status_id: number;
+  status: number;
 
   @Column({ type: DataType.SMALLINT })
   ticket_type: number;

@@ -1,4 +1,12 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Cart } from 'src/cart/cart.model';
 
 @Table({ tableName: 'bookings' })
 export class Booking extends Model {
@@ -9,9 +17,6 @@ export class Booking extends Model {
     primaryKey: true,
   })
   id: number;
-
-  @Column({ type: DataType.INTEGER })
-  cart_id: number;
 
   @Column({ type: DataType.DATE })
   createdAt: Date;
@@ -30,4 +35,11 @@ export class Booking extends Model {
 
   @Column({ type: DataType.SMALLINT })
   status_id: number;
+
+  @ForeignKey(() => Cart)
+  @Column({ type: DataType.INTEGER })
+  cart_id: number;
+
+  @BelongsTo(() => Cart)
+  cart: Cart;
 }

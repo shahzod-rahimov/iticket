@@ -2,17 +2,20 @@ import { IsDate, IsNumber } from 'class-validator';
 
 export class CreateTicketDto {
   @IsNumber()
-  readonly ticket_id;
+  readonly event_id;
 
   @IsNumber()
-  readonly customer_id;
+  readonly seat_id;
 
   @IsDate()
-  readonly createdAt;
+  readonly price;
 
   @IsDate()
-  readonly fineshedAt;
+  readonly service_fee;
 
   @IsNumber()
   readonly status_id;
+
+  @IsNumber()
+  readonly ticket_type;
 }

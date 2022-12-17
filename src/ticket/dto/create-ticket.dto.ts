@@ -1,4 +1,4 @@
-import { IsDate, IsNumber } from 'class-validator';
+import { IsNumber } from 'class-validator';
 
 export class CreateTicketDto {
   @IsNumber()
@@ -7,14 +7,14 @@ export class CreateTicketDto {
   @IsNumber()
   readonly seat_id;
 
-  @IsDate()
+  @IsNumber()
   readonly price;
 
-  @IsDate()
+  @IsNumber()
   readonly service_fee;
 
   @IsNumber()
-  readonly status_id;
+  readonly status;
 
   @IsNumber()
   readonly ticket_type;

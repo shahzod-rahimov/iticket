@@ -1,18 +1,19 @@
-import { IsDate, IsNumber } from 'class-validator';
+import { IsDate, IsDateString, IsNumber, IsOptional } from 'class-validator';
 
 export class UpdateCartDto {
+  @IsOptional()
   @IsNumber()
   readonly ticket_id;
-
+  @IsOptional()
   @IsNumber()
   readonly customer_id;
-
-  @IsDate()
+  @IsOptional()
+  @IsDateString()
   readonly createdAt;
-
-  @IsDate()
+  @IsOptional()
+  @IsDateString()
   readonly fineshedAt;
-
+  @IsOptional()
   @IsNumber()
   readonly status_id;
 }

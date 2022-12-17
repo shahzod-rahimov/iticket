@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Booking } from './booking.model';
 import { CreateBookingDto } from './dto/create-booking.dto';
@@ -8,22 +8,43 @@ import { UpdateBookingDto } from './dto/update-booking.dto';
 export class BookingService {
   constructor(@InjectModel(Booking) private bookingModel: typeof Booking) {}
   create(createBookingDto: CreateBookingDto) {
-    
+    return this.bookingModel.create({ ...createBookingDto });
   }
 
   findAll() {
-    return `This action returns all booking`;
+    return this.bookingModel.findAll({
+      include: { all: true },
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} booking`;
+  async findOne(id: number) {
+    const booking = await this.bookingModel.findOne({
+      where: { id },
+      include: { all: true },
+    });
+    if (!booking) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return booking;
   }
 
-  update(id: number, updateBookingDto: UpdateBookingDto) {
-    return `This action updates a #${id} booking`;
+  async update(id: number, updateBookingDto: UpdateBookingDto) {
+    const booking = await this.bookingModel.update(updateBookingDto, {
+      where: { id },
+    });
+    console.log(booking);
+    if (!booking[0]) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return 'Updated';
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} booking`;
+  async remove(id: number) {
+    const booking = await this.bookingModel.destroy({ where: { id } });
+
+    if (!booking) {
+      throw new HttpException('Not Found', HttpStatus.NOT_FOUND);
+    }
+    return 'Deleted';
   }
 }

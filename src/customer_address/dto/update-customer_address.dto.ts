@@ -1,6 +1,6 @@
 import { IsNumber, IsOptional, IsString } from 'class-validator';
 
-export class UpdateCustomerAddress {
+export class UpdateCustomerAddressDto {
   @IsOptional()
   @IsNumber()
   readonly customer_id;

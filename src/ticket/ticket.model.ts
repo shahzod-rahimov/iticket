@@ -16,10 +16,10 @@ export class Ticket extends Model {
   @Column({ type: DataType.INTEGER })
   seat_id: number;
 
-  @Column({ type: DataType.DECIMAL })
+  @Column({ type: DataType.INTEGER })
   price: number;
 
-  @Column({ type: DataType.DECIMAL })
+  @Column({ type: DataType.INTEGER })
   service_fee: number;
 
   @Column({ type: DataType.SMALLINT })

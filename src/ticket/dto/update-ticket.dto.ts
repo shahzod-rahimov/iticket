@@ -19,7 +19,7 @@ export class UpdateTicketDto {
 
   @IsOptional()
   @IsNumber()
-  readonly status_id;
+  readonly status;
 
   @IsOptional()
   @IsNumber()

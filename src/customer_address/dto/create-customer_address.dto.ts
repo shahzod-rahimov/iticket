@@ -1,6 +1,6 @@
 import { IsNumber, IsString } from 'class-validator';
 
-export class CreateCustomerAddress {
+export class CreateCustomerAddressDto {
   @IsNumber()
   readonly customer_id;
 

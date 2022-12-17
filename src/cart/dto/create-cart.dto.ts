@@ -1,4 +1,4 @@
-import { IsDate, IsNumber } from 'class-validator';
+import { IsDate, IsDateString, IsNumber } from 'class-validator';
 
 export class CreateCartDto {
   @IsNumber()
@@ -7,10 +7,10 @@ export class CreateCartDto {
   @IsNumber()
   readonly customer_id;
 
-  @IsDate()
+  @IsDateString()
   readonly createdAt;
 
-  @IsDate()
+  @IsDateString()
   readonly fineshedAt;
 
   @IsNumber()

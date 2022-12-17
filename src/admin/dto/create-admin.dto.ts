@@ -1,9 +1,9 @@
-import { IsBoolean, IsString } from 'class-validator';
+import { IsBoolean, IsString, IsEmail } from 'class-validator';
 
 export class CreateAdminDto {
   @IsString()
   readonly name;
-  @IsString()
+  @IsEmail()
   readonly login;
   @IsString()
   readonly hashed_password;

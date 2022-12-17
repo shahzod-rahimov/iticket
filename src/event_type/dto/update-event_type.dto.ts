@@ -1,6 +1,6 @@
 import { IsNumber, IsOptional, IsString } from 'class-validator';
 
-export class CreateEventTypeDto {
+export class UpdateEventTypeDto {
   @IsOptional()
   @IsString()
   readonly name;

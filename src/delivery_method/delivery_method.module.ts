@@ -7,6 +7,6 @@ import { DeliveryMethodService } from './delivery_method.service';
 @Module({
   imports: [SequelizeModule.forFeature([DeliveryMethod])],
   controllers: [DeliveryMethodController],
-  providers: [DeliveryMethodService]
+  providers: [DeliveryMethodService],
 })
 export class DeliveryMethodModule {}

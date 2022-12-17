@@ -1,4 +1,42 @@
-import { Controller } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Put,
+} from '@nestjs/common';
+import { CreateVenueDto } from './dto/create-venue.dto';
+import { UpdateVenueDto } from './dto/update-venue.dto';
+import { VenueService } from './venue.service';
 
 @Controller('venue')
-export class VenueController {}
+export class VenueController {
+  constructor(private readonly venueService: VenueService) {}
+
+  @Post()
+  create(@Body() createVenueDto: CreateVenueDto) {
+    return this.venueService.create(createVenueDto);
+  }
+
+  @Get()
+  findAll() {
+    return this.venueService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.venueService.findOne(+id);
+  }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateVenueDto: UpdateVenueDto) {
+    return this.venueService.update(+id, updateVenueDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.venueService.remove(+id);
+  }
+}

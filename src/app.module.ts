@@ -49,6 +49,10 @@ import { RegionController } from './region/region.controller';
 import { RegionService } from './region/region.service';
 import { DistrictModule } from './district/district.module';
 import { GenderModule } from './gender/gender.module';
+import { Country } from './countries/countries.model';
+import { Region } from './region/region.model';
+import { District } from './district/district.model';
+import { Gender } from './gender/gender.model';
 
 @Module({
   imports: [
@@ -84,6 +88,10 @@ import { GenderModule } from './gender/gender.module';
         Status,
         TicketType,
         Language,
+        Country,
+        Region,
+        District,
+        Gender,
       ],
       autoLoadModels: true,
       logging: false,
@@ -114,7 +122,5 @@ import { GenderModule } from './gender/gender.module';
     DistrictModule,
     GenderModule,
   ],
-  controllers: [RegionController],
-  providers: [RegionService],
 })
 export class AppModule {}

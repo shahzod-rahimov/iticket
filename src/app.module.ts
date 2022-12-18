@@ -45,20 +45,26 @@ import { TicketType } from './ticket_type/ticket_type.model';
 import { Language } from './languages/languages.model';
 import { CountriesModule } from './countries/countries.module';
 import { RegionModule } from './region/region.module';
-import { RegionController } from './region/region.controller';
-import { RegionService } from './region/region.service';
 import { DistrictModule } from './district/district.module';
 import { GenderModule } from './gender/gender.module';
 import { Country } from './countries/countries.model';
 import { Region } from './region/region.model';
 import { District } from './district/district.model';
 import { Gender } from './gender/gender.model';
+import { FilesModule } from './files/files.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { resolve } from 'path';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: `.${process.env.NODE_ENV}.env`,
     }),
+
+    ServeStaticModule.forRoot({
+      rootPath: resolve(__dirname, 'static'),
+    }),
+
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: process.env.POSTGRES_HOST,
@@ -121,6 +127,7 @@ import { Gender } from './gender/gender.model';
     RegionModule,
     DistrictModule,
     GenderModule,
+    FilesModule,
   ],
 })
 export class AppModule {}

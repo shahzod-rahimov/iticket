@@ -1,3 +1,6 @@
+import { IsNumber } from 'class-validator';
+
 export class CreateVenuePhotoDto {
-  readonly venue_id;
+  @IsNumber()
+  readonly venue_id: number;
 }

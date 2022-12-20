@@ -1,39 +1,39 @@
-import { IsNumber, IsOptional, IsString } from 'class-validator';
+import { IsNumber, IsOptional, IsPhoneNumber, IsString } from 'class-validator';
 
 export class UpdateVenueDto {
   @IsOptional()
   @IsString()
-  readonly name;
+  readonly name: string;
 
   @IsOptional()
   @IsString()
-  readonly address;
+  readonly address: string;
 
   @IsOptional()
   @IsString()
-  readonly location;
+  readonly location: string;
 
   @IsOptional()
   @IsString()
-  readonly site;
+  readonly site: string;
 
   @IsOptional()
-  @IsString()
-  readonly phone;
+  @IsPhoneNumber('UZ')
+  readonly phone: string;
 
   @IsOptional()
   @IsNumber()
-  readonly venue_type_id;
+  readonly venue_type_id: number;
 
   @IsOptional()
   @IsString()
-  readonly schema;
+  readonly schema: string;
 
   @IsOptional()
   @IsNumber()
-  readonly region_id;
+  readonly region_id: number;
 
   @IsOptional()
   @IsNumber()
-  readonly district_id;
+  readonly district_id: number;
 }

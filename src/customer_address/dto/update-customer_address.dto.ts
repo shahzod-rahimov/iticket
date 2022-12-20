@@ -3,45 +3,45 @@ import { IsNumber, IsOptional, IsString } from 'class-validator';
 export class UpdateCustomerAddressDto {
   @IsOptional()
   @IsNumber()
-  readonly customer_id;
+  readonly customer_id: number;
 
   @IsOptional()
   @IsString()
-  readonly name;
+  readonly name: string;
 
   @IsOptional()
   @IsNumber()
-  readonly country_id;
+  readonly country_id: number;
 
   @IsOptional()
   @IsNumber()
-  readonly region_id;
+  readonly region_id: number;
 
   @IsOptional()
   @IsNumber()
-  readonly district_id;
+  readonly district_id: number;
 
   @IsOptional()
   @IsString()
-  readonly street;
+  readonly street: string;
 
   @IsOptional()
   @IsString()
-  readonly house;
+  readonly house: string;
 
   @IsOptional()
   @IsNumber()
-  readonly flat;
+  readonly flat: number;
 
   @IsOptional()
   @IsString()
-  readonly location;
+  readonly location: string;
 
   @IsOptional()
   @IsString()
-  readonly post_index;
+  readonly post_index: string;
 
   @IsOptional()
   @IsString()
-  readonly info;
+  readonly info: string;
 }

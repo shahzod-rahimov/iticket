@@ -1,18 +1,18 @@
-import {  IsDateString, IsNumber } from 'class-validator';
+import { IsDateString, IsNumber } from 'class-validator';
 
 export class CreateBookingDto {
   @IsNumber()
-  readonly cart_id;
+  readonly cart_id: number;
   @IsDateString()
-  readonly createdAt;
+  readonly createdAt: Date;
   @IsDateString()
-  readonly fineshed;
+  readonly fineshed: Date;
   @IsNumber()
-  readonly payment_method_id;
+  readonly payment_method_id: number;
   @IsNumber()
-  readonly delivery_method_id;
+  readonly delivery_method_id: number;
   @IsNumber()
-  readonly discount_coupon_id;
+  readonly discount_coupon_id: number;
   @IsNumber()
-  readonly status_id;
+  readonly status_id: number;
 }

@@ -8,21 +8,21 @@ import {
 
 export class CreateCustomerDto {
   @IsString()
-  readonly first_name;
+  readonly first_name: string;
   @IsString()
-  readonly last_name;
+  readonly last_name: string;
   @IsPhoneNumber('UZ')
-  readonly phone;
+  readonly phone: string;
   @IsString()
-  readonly hashed_password;
+  readonly hashed_password: string;
   @IsEmail()
-  readonly email;
+  readonly email: string;
   @IsDate()
-  readonly birth_date;
+  readonly birth_date: Date;
   @IsNumber()
-  readonly gender;
+  readonly gender: number;
   @IsNumber()
-  readonly lang_id;
+  readonly lang_id: number;
   @IsString()
-  readonly hashed_refresh_token;
+  readonly hashed_refresh_token: string;
 }

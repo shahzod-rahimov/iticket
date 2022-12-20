@@ -1,5 +1,13 @@
-import { Column, DataType, HasMany, Model, Table } from 'sequelize-typescript';
-import { Booking } from 'src/booking/booking.model';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  HasMany,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Status } from 'src/status/status.model';
 
 @Table({ tableName: 'carts' })
 export class Cart extends Model {
@@ -23,9 +31,10 @@ export class Cart extends Model {
   @Column({ type: DataType.DATE })
   fineshedAt: number;
 
+  @ForeignKey(() => Status)
   @Column({ type: DataType.SMALLINT })
   status_id: number;
 
-  // @HasMany(() => Booking)
-  // booking: Booking;
+  @BelongsTo(() => Status)
+  status: Status;
 }

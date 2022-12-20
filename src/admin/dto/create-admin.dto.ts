@@ -2,13 +2,13 @@ import { IsBoolean, IsString, IsEmail } from 'class-validator';
 
 export class CreateAdminDto {
   @IsString()
-  readonly name;
+  readonly name: string;
   @IsEmail()
-  readonly login;
+  readonly login: string;
   @IsString()
-  readonly hashed_password;
+  readonly hashed_password: string;
   @IsBoolean()
-  readonly is_active;
+  readonly is_active: boolean;
   @IsBoolean()
-  readonly is_creator;
+  readonly is_creator: boolean;
 }

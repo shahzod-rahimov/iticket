@@ -6,16 +6,9 @@ import { AdminService } from './admin.service';
 import { JwtModule } from '@nestjs/jwt';
 
 @Module({
-  imports: [
-    SequelizeModule.forFeature([Admin]),
-    JwtModule.register({
-      secret: process.env.PRIVATE_KEY || 'SECRET',
-      signOptions: {
-        expiresIn: '24h',
-      },
-    }),
-  ],
+  imports: [SequelizeModule.forFeature([Admin]), JwtModule.register({})],
   controllers: [AdminController],
   providers: [AdminService],
+  exports: [AdminService],
 })
 export class AdminModule {}

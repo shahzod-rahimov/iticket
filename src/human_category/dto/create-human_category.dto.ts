@@ -2,11 +2,11 @@ import { IsNumber, IsString } from 'class-validator';
 
 export class CreateHumanCategoryDto {
   @IsString()
-  readonly name;
+  readonly name: string;
   @IsNumber()
-  readonly start_age;
+  readonly start_age: number;
   @IsNumber()
-  readonly finish_age;
+  readonly finish_age: number;
   @IsNumber()
-  readonly gender;
+  readonly gender: number;
 }

@@ -1,6 +1,6 @@
-import { IsString } from "class-validator";
+import { IsString } from 'class-validator';
 
 export class CreateDeliveryMethodDto {
   @IsString()
-  readonly method_name;
+  readonly method_name: string;
 }

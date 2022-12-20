@@ -2,26 +2,26 @@ import { IsBoolean, IsNumber, IsPhoneNumber, IsString } from 'class-validator';
 
 export class CreateCustomerCardDto {
   @IsNumber()
-  readonly customer_id;
+  readonly customer_id: number;
 
   @IsString()
-  readonly name;
+  readonly name: string;
 
   @IsPhoneNumber('UZ')
-  readonly phone;
+  readonly phone: string;
 
   @IsString()
-  readonly number;
+  readonly number: string;
 
   @IsString()
-  readonly year;
+  readonly year: string;
 
   @IsString()
-  readonly month;
+  readonly month: string;
 
   @IsBoolean()
-  readonly is_active;
+  readonly is_active: boolean;
 
   @IsBoolean()
-  readonly is_main;
+  readonly is_main: boolean;
 }

@@ -3,49 +3,49 @@ import { IsDate, IsNumber, IsOptional, IsString } from 'class-validator';
 export class CreateEventDto {
   @IsOptional()
   @IsString()
-  readonly name;
+  readonly name: string;
 
   @IsOptional()
   @IsString()
-  readonly photo;
+  readonly photo: string;
 
   @IsOptional()
   @IsDate()
-  readonly start_date;
+  readonly start_date: Date;
 
   @IsOptional()
   @IsDate()
-  readonly start_time;
+  readonly start_time: Date;
 
   @IsOptional()
   @IsDate()
-  readonly finish_date;
+  readonly finish_date: Date;
 
   @IsOptional()
   @IsDate()
-  readonly finish_time;
+  readonly finish_time: Date;
 
   @IsOptional()
   @IsString()
-  readonly info;
+  readonly info: string;
 
   @IsOptional()
   @IsNumber()
-  readonly event_type_id;
+  readonly event_type_id: number;
 
   @IsOptional()
   @IsNumber()
-  readonly human_category_id;
+  readonly human_category_id: number;
 
   @IsOptional()
   @IsNumber()
-  readonly venue_id;
+  readonly venue_id: number;
 
   @IsOptional()
   @IsNumber()
-  readonly lang_id;
+  readonly lang_id: number;
 
   @IsOptional()
   @IsDate()
-  readonly release_date;
+  readonly release_date: Date;
 }

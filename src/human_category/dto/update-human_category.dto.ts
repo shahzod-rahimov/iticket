@@ -3,14 +3,14 @@ import { IsNumber, IsOptional, IsString } from 'class-validator';
 export class UpdateHumanCategoryDto {
   @IsOptional()
   @IsString()
-  readonly name;
+  readonly name: string;
   @IsOptional()
   @IsNumber()
-  readonly start_age;
+  readonly start_age: number;
   @IsOptional()
   @IsNumber()
-  readonly finish_age;
+  readonly finish_age: number;
   @IsOptional()
   @IsNumber()
-  readonly gender;
+  readonly gender: number;
 }

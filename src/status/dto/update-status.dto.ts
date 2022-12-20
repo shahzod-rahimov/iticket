@@ -3,5 +3,5 @@ import { IsOptional, IsString } from 'class-validator';
 export class UpdateStatusDto {
   @IsOptional()
   @IsString()
-  readonly status_name;
+  readonly status_name: string;
 }

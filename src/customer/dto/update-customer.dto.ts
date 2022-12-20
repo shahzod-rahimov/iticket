@@ -10,23 +10,23 @@ import {
 export class UpdateCustomerDto {
   @IsOptional()
   @IsString()
-  readonly first_name;
+  readonly first_name: string;
   @IsOptional()
   @IsString()
-  readonly last_name;
+  readonly last_name: string;
   @IsOptional()
   @IsPhoneNumber('UZ')
-  readonly phone;
+  readonly phone: string;
   @IsOptional()
   @IsEmail()
-  readonly email;
+  readonly email: string;
   @IsOptional()
   @IsDate()
-  readonly birth_date;
+  readonly birth_date: Date;
   @IsOptional()
   @IsNumber()
-  readonly gender;
+  readonly gender: number;
   @IsOptional()
   @IsNumber()
-  readonly lang_id;
+  readonly lang_id: number;
 }

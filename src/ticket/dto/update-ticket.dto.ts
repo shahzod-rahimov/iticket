@@ -3,25 +3,25 @@ import { IsDate, IsDecimal, IsNumber, IsOptional } from 'class-validator';
 export class UpdateTicketDto {
   @IsOptional()
   @IsNumber()
-  readonly event_id;
+  readonly event_id: number;
 
   @IsOptional()
   @IsNumber()
-  readonly seat_id;
+  readonly seat_id: number;
 
   @IsOptional()
   @IsDecimal()
-  readonly price;
+  readonly price: number;
 
   @IsOptional()
   @IsDecimal()
-  readonly service_fee;
+  readonly service_fee: number;
 
   @IsOptional()
   @IsNumber()
-  readonly status;
+  readonly status: number;
 
   @IsOptional()
   @IsNumber()
-  readonly ticket_type;
+  readonly ticket_type: number;
 }

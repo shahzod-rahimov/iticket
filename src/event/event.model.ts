@@ -1,4 +1,15 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { EventType } from 'src/event_type/event_type.model';
+import { HumanCategory } from 'src/human_category/human_category.model';
+import { Language } from 'src/languages/languages.model';
+import { Venue } from 'src/venue/venue.model';
 
 @Table({ tableName: 'events' })
 export class Event extends Model {
@@ -31,18 +42,34 @@ export class Event extends Model {
   @Column({ type: DataType.TEXT })
   info: string;
 
+  @ForeignKey(() => EventType)
   @Column({ type: DataType.INTEGER })
   event_type_id: number;
 
+  @ForeignKey(() => HumanCategory)
   @Column({ type: DataType.INTEGER })
   human_category_id: number;
 
+  @ForeignKey(() => Venue)
   @Column({ type: DataType.INTEGER })
   venue_id: number;
 
+  @ForeignKey(() => Language)
   @Column({ type: DataType.SMALLINT })
   lang_id: number;
 
   @Column({ type: DataType.DATE })
   release_date: Date;
+
+  @BelongsTo(() => EventType)
+  eventType: EventType;
+
+  @BelongsTo(() => HumanCategory)
+  humanCategory: HumanCategory;
+
+  @BelongsTo(() => Venue)
+  venue: Venue;
+
+  @BelongsTo(() => Language)
+  language: Language;
 }

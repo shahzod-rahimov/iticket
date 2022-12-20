@@ -1,4 +1,12 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Venue } from 'src/venue/venue.model';
 
 @Table({ tableName: 'venue-photos' })
 export class VenuePhotos extends Model {
@@ -10,9 +18,13 @@ export class VenuePhotos extends Model {
   })
   id: number;
 
+  @ForeignKey(() => Venue)
   @Column({ type: DataType.INTEGER })
   venue_id: number;
 
   @Column({ type: DataType.STRING })
   url: string;
+
+  @BelongsTo(() => Venue)
+  venue: Venue;
 }

@@ -1,4 +1,12 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Gender } from 'src/gender/gender.model';
 
 @Table({ tableName: 'human-categories' })
 export class HumanCategory extends Model {
@@ -19,6 +27,10 @@ export class HumanCategory extends Model {
   @Column({ type: DataType.SMALLINT })
   finish_age: number;
 
+  @ForeignKey(() => Gender)
   @Column({ type: DataType.SMALLINT })
   gender: number;
+
+  @BelongsTo(() => Gender)
+  gender_value: Gender;
 }

@@ -1,4 +1,13 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Gender } from 'src/gender/gender.model';
+import { Language } from 'src/languages/languages.model';
 
 @Table({ tableName: 'customers' })
 export class Customer extends Model {
@@ -40,11 +49,13 @@ export class Customer extends Model {
   })
   birth_date: Date;
 
+  @ForeignKey(() => Gender)
   @Column({
     type: DataType.SMALLINT,
   })
   gender: number;
 
+  @ForeignKey(() => Language)
   @Column({
     type: DataType.SMALLINT,
   })
@@ -54,4 +65,10 @@ export class Customer extends Model {
     type: DataType.STRING,
   })
   hashed_refresh_token: string;
+
+  @BelongsTo(() => Gender)
+  gender_value: Gender;
+
+  @BelongsTo(() => Language)
+  language: Language;
 }

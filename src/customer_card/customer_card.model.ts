@@ -1,4 +1,12 @@
-import { Table, Model, Column, DataType } from 'sequelize-typescript';
+import {
+  Table,
+  Model,
+  Column,
+  DataType,
+  ForeignKey,
+  BelongsTo,
+} from 'sequelize-typescript';
+import { Customer } from 'src/customer/customer.model';
 
 @Table({ tableName: 'customer-cards' })
 export class CustomerCard extends Model {
@@ -10,6 +18,7 @@ export class CustomerCard extends Model {
   })
   id: number;
 
+  @ForeignKey(() => Customer)
   @Column({ type: DataType.INTEGER })
   customer_id: number;
 
@@ -33,4 +42,7 @@ export class CustomerCard extends Model {
 
   @Column({ type: DataType.BOOLEAN })
   is_main: string;
+
+  @BelongsTo(() => Customer)
+  customer: Customer;
 }

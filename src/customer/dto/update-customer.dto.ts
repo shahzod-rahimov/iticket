@@ -3,9 +3,9 @@ import {
   IsPhoneNumber,
   IsString,
   IsEmail,
-  IsDate,
   IsNumber,
   IsOptional,
+  IsDateString,
 } from 'class-validator';
 
 export class UpdateCustomerDto {
@@ -31,7 +31,7 @@ export class UpdateCustomerDto {
 
   @ApiProperty({ example: '01-01-2001', description: 'Birthdate' })
   @IsOptional()
-  @IsDate()
+  @IsDateString()
   readonly birth_date: Date;
 
   @ApiProperty({ example: "{ 1: 'male', 2: 'female' }", description: 'Gender' })

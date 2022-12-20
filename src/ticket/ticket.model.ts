@@ -1,4 +1,13 @@
-import { Column, DataType, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from 'sequelize-typescript';
+import { Event } from 'src/event/event.model';
+import { Seat } from 'src/seat/seat.model';
 
 @Table({ tableName: 'tickets' })
 export class Ticket extends Model {
@@ -10,9 +19,11 @@ export class Ticket extends Model {
   })
   id: number;
 
+  @ForeignKey(() => Event)
   @Column({ type: DataType.INTEGER })
   event_id: number;
 
+  @ForeignKey(() => Seat)
   @Column({ type: DataType.INTEGER })
   seat_id: number;
 
@@ -27,4 +38,10 @@ export class Ticket extends Model {
 
   @Column({ type: DataType.SMALLINT })
   ticket_type: number;
+
+  @BelongsTo(() => Event)
+  event: Event;
+
+  @BelongsTo(() => Seat)
+  seat: Seat;
 }

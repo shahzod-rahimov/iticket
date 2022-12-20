@@ -5,6 +5,7 @@ import {
   IsEmail,
   IsDate,
   IsNumber,
+  IsDateString,
 } from 'class-validator';
 
 export class CreateCustomerDto {
@@ -29,7 +30,7 @@ export class CreateCustomerDto {
   readonly email: string;
 
   @ApiProperty({ example: '01-01-2001', description: 'Birthdate' })
-  @IsDate()
+  @IsDateString()
   readonly birth_date: Date;
 
   @ApiProperty({ example: "{ 1: 'male', 2: 'female' }", description: 'Gender' })
@@ -39,8 +40,4 @@ export class CreateCustomerDto {
   @ApiProperty({ example: '1', description: 'Language id' })
   @IsNumber()
   readonly lang_id: number;
-
-  @ApiProperty({ example: 'token', description: 'Token' })
-  @IsString()
-  readonly hashed_refresh_token: string;
 }
